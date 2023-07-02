@@ -1,0 +1,101 @@
+<hmtl>
+	<head>
+		<style>
+			body{
+				background-color:antiquewhite;
+				text-align: center;
+				font-family: Arial,sans-serif;
+				color:#fffff;
+			}
+			.login{
+				width:400px;
+				margin:0 auto;
+				padding: 20px;
+				background-color: rgba(57,147,135,0.7);
+				border-radius: 10px;
+				box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			}
+			.form-label{
+				font-size: 16px;
+				font-weight: bold;
+				margin-bottom: 10px;
+			}
+		    .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .btn {
+            background-color: #864951;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+		</style>
+
+	</head>
+	<body>
+		<div class="login">
+			<form action="{{url_for('predict')}}" method="post">
+				<h1>
+					<legend> Welcome to Graduate admission predictor </legend>
+				</h1>
+               <div class="mb-3">
+               	<label class="form-label"> Enter your GRE Score</label>
+               	<input class="form-control" type="number" name="GRE Score" required="" min="0" max="340" step="1"/>
+               </div>
+                <div class="mb-3">
+               	<label class="form-label"> Enter your TOEFL Score</label>
+               	<input class="form-control" type="number" name="TOEFL Score" required="" min="0" max="120" step="1"/>
+               </div>
+                <div class="mb-3">
+               	<label class="form-label"> Enter your University Rating</label>
+               	<input class="form-control" type="number" name="University Rating" required="" min="0" max="5" step="1"/>
+               </div>
+               <div class="mb-3">
+               	<label class="form-label"> Enter your SOP</label>
+               	<input class="form-control" type="number" name="SOP" required="" min="0" max="5" step="0.5"/>
+               </div>
+               <div class="mb-3">
+               	<label class="form-label"> Enter your LOR</label>
+               	<input class="form-control" type="number" name="LOR" required="" min="0" max="5" step="0.5"/>
+               </div>
+               <div class="mb-3">
+               	<label class="form-label"> Enter your CGPA</label>
+               	<input class="form-control" type="number" name="CGPA" required="" min="0" max="10" step="0.01"/>
+               </div>
+               <div class="mb-3">
+               	<label class="form-label"> Enter your Research</label>
+               	<input class="form-control" type="number" name="Research" required="" min="0" max="1" step="1"/>
+               </div>
+               <div class="mb-3">
+               	<br>
+               	<input class="btn btn-primary" type="submit" value="Predict your Chance of Admission" required/>
+               </div>
+
+			</form>
+			<h2>
+				Your chances of admission is {{result1}}%
+			</h2>
+			<h2>
+				Acoording to your data you are a {{result2}}
+			</h2>
+		</div>
+	</body>
+</hmtl>
